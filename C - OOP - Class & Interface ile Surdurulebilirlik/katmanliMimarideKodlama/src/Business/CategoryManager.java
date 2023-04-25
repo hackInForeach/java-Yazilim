@@ -1,30 +1,29 @@
 package Business;
 
-import DataAccess.CategoryDao;
-import Entities.Category;
-import Logging.Logger;
+import Entities.Course;
 
-import java.util.List;
-import java.util.Objects;
+import java.util.ArrayList;
 
 public class CategoryManager {
-    private final CategoryDao categoryDao;
-    private final List<Logger> loggers;
-    private final List<Category> categories;
+    private Course[] courses;
 
-    public CategoryManager(CategoryDao categoryDao,List<Logger> loggers , List<Category> categories){
-        this.categories=categories;
-        this.categoryDao=categoryDao;
-        this.loggers=loggers;
+    public CategoryManager() {
+
     }
-    public void add(Category category)throws Exception{
-        for (Category category1:categories){
-            if (Objects.equals(category1.getName(),category.getName())){
-                throw new Exception("Bu kategori mevcut.");
-            }
-        }categoryDao.add(category);
-        for (Logger logger:loggers){
-            logger.log(category.getName());
+
+    public CategoryManager(Course[] courses) {
+        this.courses=courses;
+    }
+
+    public void add(Course course) {
+        int i=1;
+        System.out.println("Category: ");
+        for (Course course1 :courses) {
+            System.out.println(i+". "+course1.getCourseName());
+            i++;
         }
+
     }
+
 }
+

@@ -1,7 +1,7 @@
 package Logging;
 
-public class DatabaseLogger implements Logger{
-    public void log(String data){
-        System.out.println("Veri tabanına gönderildi: "+data);
+public class DatabaseLogger implements BaseLogger{
+    public void add(String data) {
+        System.out.println("Veri tabanına loglandı : " + data);
     }
 }

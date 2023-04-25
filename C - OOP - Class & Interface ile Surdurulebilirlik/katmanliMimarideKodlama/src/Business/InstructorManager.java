@@ -1,28 +1,36 @@
 package Business;
+
 import DataAccess.InstructorDao;
+import Entities.Course;
 import Entities.Instructor;
-import Logging.Logger;
+import Logging.BaseLogger;
 
-import java.util.List;
+import java.util.ArrayList;
+import java.util.Arrays;
 
-public class InstructorManager {
-    private final InstructorDao instructorDao;
-    private final List<Logger> loggers;
-    private final List<Instructor> instructors;
-    public InstructorManager(InstructorDao instructorDao, List<Logger> loggers,List<Instructor> instructors){
+public class InstructorManager extends Course {
+    private InstructorDao instructorDao;
+    private BaseLogger[] baseLoggers;
+    private Instructor[] instructors;
+    public InstructorManager(){
+
+    }public InstructorManager(InstructorDao instructorDao,BaseLogger[] baseLoggers,Instructor[] instructors){
         this.instructorDao=instructorDao;
+        this.baseLoggers=baseLoggers;
         this.instructors=instructors;
-        this.loggers=loggers;
     }
-    public void add(Instructor instructor)throws Exception{
-        for (Instructor instructor1:instructors) {
-            if (instructor1.getName().equals(instructor.getName())){
-                throw new Exception("Bu eğitmen mevcut!");
+    public void add(Instructor instructor) throws Exception{
+
+//        for (Instructor instructor1:instructors){
+//            if (instructor1.getId()== instructor.getId()){
+//                throw new Exception("Aynı ID ile giriş yapılamaz!");
+//            }
+//        }
+            instructorDao.add(instructor);
+
+            for (BaseLogger baseLogger:baseLoggers){
+                baseLogger.add(instructor.getFirstName());
             }
         }
-        instructorDao.add(instructor);
-        for (Logger logger:loggers){
-            logger.log(instructor.getName());
-        }
-    }
+
 }

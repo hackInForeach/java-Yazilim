@@ -1,7 +1,7 @@
 package DataAccess;
 
-import Entities.Category;
+import Entities.Course;
 
 public interface CategoryDao {
-    void add(Category category);
+    void add(Course category);
 }

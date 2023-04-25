@@ -1,7 +1,7 @@
 package Logging;
 
-public class FileLogger implements Logger{
-    public void log(String data){
-        System.out.println("Dosyaya gönderildi: "+data);
+public class FileLogger implements BaseLogger {
+    public void add(String data) {
+        System.out.println("Dosyaya loglandı : " + data);
     }
 }

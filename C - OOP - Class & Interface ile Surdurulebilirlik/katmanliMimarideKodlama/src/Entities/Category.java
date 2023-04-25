@@ -2,15 +2,20 @@ package Entities;
 
 public class Category {
     private String name;
-    public Category(){
 
-    }public Category(String name){
-        this.name=name;
+    public Category() {
+
     }
-    public String getName(){
+
+    public Category(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
         return name;
     }
-    public void setName(String name){
-        this.name=name;
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

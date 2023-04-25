@@ -1,7 +1,7 @@
 package Logging;
 
-public class MailLogger implements Logger{
-    public void log(String data){
-        System.out.println("Maile gönderildi: "+data);
+public class MailLogger implements BaseLogger {
+    public void add(String data) {
+        System.out.println("Mail'e gönderildi : " + data);
     }
 }

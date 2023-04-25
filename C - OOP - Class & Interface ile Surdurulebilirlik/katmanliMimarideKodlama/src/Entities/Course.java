@@ -2,15 +2,17 @@ package Entities;
 
 public class Course {
     private int id;
-    private String name;
+    private String courseName;
     private double unitPrice;
 
-    public Course(){
+    public Course() {
 
-    }public Course(int id,String name,double unitPrice){
-        this.id=id;
-        this.name=name;
-        this.unitPrice=unitPrice;
+    }
+
+    public Course(int id, String courseName, double unitPrice) {
+        this.id = id;
+        this.courseName = courseName;
+        this.unitPrice = unitPrice;
     }
 
     public int getId() {
@@ -21,12 +23,12 @@ public class Course {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getCourseName() {
+        return courseName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setCourseName(String courseName) {
+        this.courseName = courseName;
     }
 
     public double getUnitPrice() {
